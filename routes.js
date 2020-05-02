@@ -29,3 +29,5 @@ const routes = {
     else return NEW_NOTICES;
   },
 };
+
+export default routes;
