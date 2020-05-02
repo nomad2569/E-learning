@@ -1,0 +1,12 @@
+{
+  "name": "kweb-test",
+  "version": "1.0.0",
+  "description": "for fun",
+  "main": "index.js",
+  "scripts": {},
+  "author": "KMK",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
