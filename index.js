@@ -8,13 +8,31 @@ import routes from "./routes";
 import { globalRouter } from "./globalRouter";
 import { localMiddle } from "./middleWares";
 import "./db";
+import passport from "passport";
+import session from "express-session";
+import "./passport";
+import MongoStore from "connect-mongo";
+import mongoose from "mongoose";
 
 const app = express();
 const PORT = 1000;
 
+const CokieStore = MongoStore(session);
+
 app.listen(PORT, () => {
   console.log(`Listening on : ${PORT}`);
 });
+
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new CokieStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));

@@ -2,11 +2,12 @@ extends ./layout/main
 
 block content
     form.join__form(action=routes.join,method="post")
-        label.join__check 학생
-            input.join__input(type="checkbox",name="isStudent")
-        label.join__check 교수
-            input.join__input(type="checkbox",name="isProf")
-        input.join__input(type="text",name="name")
-        input.join__input(type="text",name="id")
-        input.join__input(type="text",name="")
-        input.join__input(type="text")
+        select.join__select(name="accessor")
+            option(value=1) Student
+            option(value=2) Professor
+        input.join__input(type="text",name="name",placeholder="name")
+        input.join__input(type="text",name="schoolId",placeholder="school Id")
+        input.join__input(type="text",name="email",placeholder="email")
+        input.join__input(type="text",name="password",placeholder="password")
+        input.join__input(type="text",name="password2",placeholder="password2")
+        input.join__input(type="submit",value="Join")
