@@ -3,8 +3,12 @@ header
         img.header__logo(src="http://info.korea.ac.kr/_res/info/img/community/img_kweb.gif")
     a.header__title(href=routes.home) KWEB Board
     .header__column
-        a.header__login(href=routes.login) log in
-        a.header__join(href=routes.join) join
-        span.header__newN
-        span.header__userProfile
-        span.header__logout
+        if !loggedUser
+            a.header__login(href=routes.login) log in
+            a.header__join(href=routes.join) join
+        else 
+            span.header__newNotices
+                i.fas.fa-exclamation
+            span.header__userProfile
+                i.fas.fa-user
+            a.header__logout(href=routes.logout) log out
