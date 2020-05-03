@@ -2,9 +2,6 @@ extends ./layout/main
 
 block content
     form.login__form(action=routes.login,method="post")
-        select.login__select(name="accessor")
-            option(value=1) Student
-            option(value=2) Professor
         input.login__input(type="text",name="email",placeholder="email")
         input.login__input(type="text",name="password",placeholder="password")
         input.login__input(type="submit",value="login")

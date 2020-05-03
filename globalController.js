@@ -2,8 +2,19 @@ import passport from "passport";
 import routes from "./routes";
 import User from "./models/User";
 
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "home" });
+export const home = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id)
+      .populate("lectures")
+      .populate({
+        path: "lectures",
+        populate: { path: "professor", select: "name" },
+      });
+
+    res.render("home", { pageTitle: "home", user });
+  } catch (error) {
+    res.render("home", { pageTitle: "home" });
+  }
 };
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "join" });

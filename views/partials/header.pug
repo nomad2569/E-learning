@@ -7,8 +7,9 @@ header
             a.header__login(href=routes.login) log in
             a.header__join(href=routes.join) join
         else 
-            span.header__newNotices
-                i.fas.fa-exclamation
-            span.header__userProfile
+            if loggedUser.isStudent
+                a.header__newNotices(href=routes.newNotices())
+                    i.fas.fa-exclamation
+            a.header__userDetail(href=routes.userDetail())
                 i.fas.fa-user
             a.header__logout(href=routes.logout) log out

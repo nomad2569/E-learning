@@ -1,4 +1,15 @@
 extends ./layout/main
+include mixins/lectureBlock
 
 block content
-    p home
+    if user !== undefined
+        .lectures
+            each lecture in user.lectures
+                +lectureBlock({
+                    id:lecture.id,
+                    lectureId:lecture.lectureId,
+                    name:lecture.name,
+                    professorName:lecture.professor.name
+                })
+    else
+        h1 Plz Login!

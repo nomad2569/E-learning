@@ -2,9 +2,16 @@ import mongoose from "mongoose";
 import passportLoclaMongoose from "passport-local-mongoose";
 
 const UserSchema = new mongoose.Schema({
-  isStudent: Boolean,
+  isStudent: {
+    type: Boolean,
+    default: false,
+  },
+  name: String,
   schoolId: Number,
-  isProf: Boolean,
+  isProf: {
+    type: Boolean,
+    default: false,
+  },
   lectures: [
     {
       type: mongoose.Schema.Types.ObjectId,

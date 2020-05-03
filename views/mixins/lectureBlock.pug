@@ -1,1 +1,6 @@
-mixin lectureBlock()
+mixin lectureBlock(lecture = {})
+    .lectureBlock
+        a(href=routes.lectureDetail(lecture.id))
+            span.lecture__id=lecture.lectureId
+            span.lecture__name=lecture.name
+            span.lecture__professor=lecture.professorName
