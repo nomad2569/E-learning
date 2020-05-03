@@ -27,8 +27,13 @@
     &:hover {
       border: 2px solid $crimson;
     }
-
     .lecture__linkToWrite {
+      position: absolute;
+      font-size: 30px;
+      bottom: 35px;
+      right: 20px;
+    }
+    .lecture__linkToAdd {
       position: absolute;
       font-size: 30px;
       bottom: 35px;

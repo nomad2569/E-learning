@@ -1,0 +1,9 @@
+mixin lectureBlockAdd(lecture = {})
+    .lectureBlock
+        a.lecture__link
+            span.lecture__id=lecture.lectureId
+            span.lecture__name=lecture.name
+            span.lecture__professor .#{lecture.professorName} |
+        if loggedUser.isStudent
+            a.lecture__linkToAdd(href=`/api${routes.enrollLecture(lecture.id)}`)
+                i.fas.fa-plus

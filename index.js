@@ -6,6 +6,7 @@ import morgan from "morgan";
 import path from "path";
 import routes from "./routes";
 import { globalRouter } from "./globalRouter";
+import { apiRouter } from "./apiRouter";
 import { localMiddle } from "./middleWares";
 import "./db";
 import passport from "passport";
@@ -20,7 +21,7 @@ const PORT = 1000;
 const CokieStore = MongoStore(session);
 
 app.listen(PORT, () => {
-  console.log(`Listening on : ${PORT}`);
+  console.log(`Listening on: ${PORT}`);
 });
 
 app.use(
@@ -47,3 +48,4 @@ app.use(morgan("dev"));
 app.use(localMiddle);
 
 app.use(routes.home, globalRouter);
+app.use(routes.api, apiRouter);

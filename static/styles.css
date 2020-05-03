@@ -159,7 +159,8 @@ input {
   -webkit-justify-content: space-between;
      -moz-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
+          justify-content: space-between;
+  height: 180px; }
   .header .header__logo {
     width: 100px;
     height: 100px;
@@ -252,6 +253,11 @@ input {
       font-size: 30px;
       bottom: 35px;
       right: 20px; }
+    .lectures .lectureBlock .lecture__linkToAdd {
+      position: absolute;
+      font-size: 30px;
+      bottom: 35px;
+      right: 20px; }
     .lectures .lectureBlock .lecture__link {
       height: 100%;
       display: -webkit-box;
@@ -286,6 +292,62 @@ input {
         margin-bottom: 5px; }
       .lectures .lectureBlock .lecture__link .lecture__professor {
         font-size: 13px; }
+
+.notices {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none; }
+  .notices::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/ }
+  .notices .notice:first-child {
+    margin-top: 50px; }
+  .notices .notice {
+    border-bottom: 1px solid black;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .notices .notice .notice__title {
+      font-weight: 600;
+      font-size: 25px;
+      margin-bottom: 20px; }
+    .notices .notice .notice__date {
+      font-weight: 200;
+      font-size: 15px;
+      margin-bottom: 10px; }
+    .notices .notice .notice__content {
+      line-height: 1.7;
+      padding-left: 10px; }
+    .notices .notice .notice__creator {
+      font-weight: 200;
+      font-size: 15px;
+      margin-top: 10px; }
 
 * {
   font-family: "Raleway", "Noto Sans KR", sans-serif; }

@@ -1,10 +1,20 @@
 extends ./layout/main
 include mixins/lectureBlock
+include mixins/noticeBlock
 
 block content
-    +lectureBlock({
-        id:lecture.id,
-        lectureId:lecture.lectureId,
-        name:lecture.name,
-        professorName:lecture.professor.name
-    })
+    .lectures
+        +lectureBlock({
+            id:lecture.id,
+            lectureId:lecture.lectureId,
+            name:lecture.name,
+            professorName:lecture.professor.name
+        })
+    .notices Announcements
+        each notice in lecture.notices.reverse()
+            +noticeBlock({
+                title:notice.title,
+                createdAt:notice.createdAt,
+                content:notice.content,
+                creator:notice.creator.name
+            })

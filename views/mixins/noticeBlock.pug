@@ -1,0 +1,6 @@
+mixin noticeBlock(notice={})
+    .notice
+        span.notice__title=notice.title
+        span.notice__date=notice.createdAt
+        span.notice__content=notice.content
+        span.notice__creator 작성자 : #{notice.creator}

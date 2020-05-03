@@ -10,6 +10,11 @@ header.header
             if loggedUser.isStudent
                 a.header__newNotices(href=routes.newNotices(loggedUser.id))
                     i.fas.fa-exclamation
+                a.header__seeLectures(href=routes.seeLectures)
+                    i.fas.fa-book-open
+            else if loggedUser.isProf
+                a.header__makeLecture(href=routes.makeLecture(loggedUser.id))
+                    i.far.fa-plus-square
             a.header__userDetail(href=routes.userDetail(loggedUser.id))
                 i.fas.fa-user
             a.header__logout(href=routes.logout) log out

@@ -1,0 +1,7 @@
+extends ./layout/main
+
+block content
+    form.makeL__form(action=routes.makeLecture(id),method="post")
+        input.makeL__input(type="text",name="lectureId",placeholder="lectureId")
+        input.makeL__input(type="text",name="name",placeholder="name")
+        input.makeL__input(type="submit",value="Register")

@@ -4,7 +4,7 @@ include mixins/lectureBlock
 block content
     if user !== undefined
         .lectures
-            each lecture in user.lectures
+            each lecture in user.lectures.reverse()
                 +lectureBlock({
                     id:lecture.id,
                     lectureId:lecture.lectureId,

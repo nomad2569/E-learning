@@ -1,0 +1,11 @@
+extends ./layout/main
+include mixins/lectureBlockAdd
+block content
+    .lectures
+        each lecture in lectures
+            +lectureBlockAdd({
+                id:lecture.id,
+                lectureId:lecture.lectureId,
+                name:lecture.name,
+                professorName:lecture.professor.name
+            })

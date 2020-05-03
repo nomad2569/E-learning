@@ -67,10 +67,19 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 export const lectureDetail = async (req, res) => {
-  const { query: id } = req;
+  const {
+    params: { id },
+  } = req;
   try {
-    const lecture = await Lecture.findById(id);
-    //const lecture = await Lecture.findById(id).populate("notices");
+    const lecture = await Lecture.findById(id)
+      .populate({
+        path: "notices",
+        populate: { path: "creator", select: "name" },
+      })
+      .populate({
+        path: "professor",
+        select: "name",
+      });
     res.render("lectureDetail", { pageTitle: "lectureDetail", lecture });
   } catch (error) {
     console.log(error);
@@ -81,11 +90,16 @@ export const userDetail = (req, res) => {
   res.render("userDetail", { pageTitle: "userDetail" });
 };
 export const getWriteNotice = (req, res) => {
-  const { query: id } = req;
+  const {
+    params: { id },
+  } = req;
   res.render("writeNotice", { pageTitle: "writeNotice", id });
 };
 export const postWriteNotice = async (req, res) => {
-  const { body: title, content, query: id } = req;
+  const {
+    body: { title, content },
+    params: { id },
+  } = req;
 
   try {
     const newNotice = await Notice.create({
@@ -104,3 +118,45 @@ export const postWriteNotice = async (req, res) => {
     res.redirect(routes.writeNotice(id));
   }
 };
+
+export const getMakeLecture = (req, res) => {
+  res.render("makeLecture", { pageTitle: "makeLecture", id: req.user.id });
+};
+
+export const postMakeLecture = async (req, res) => {
+  const {
+    body: { lectureId, name },
+    user,
+  } = req;
+
+  try {
+    const newLecture = await Lecture.create({
+      lectureId,
+      name,
+      professor: user.id,
+    });
+
+    const prof = await User.findById(user.id);
+    prof.lectures.push(newLecture);
+    prof.save();
+    res.redirect(routes.home);
+  } catch (error) {
+    res.status(400);
+    res.redirect(routes.home);
+  }
+};
+
+export const getSeeLectures = async (req, res) => {
+  try {
+    const lectures = await Lecture.find().populate({
+      path: "professor",
+      select: "name",
+    });
+    res.render("seeLectures", { pageTitle: "seeLectuers", lectures });
+  } catch (error) {
+    res.status(400);
+    res.redirect(routes.home);
+  }
+};
+
+export const postSeeLectures = (req, res) => {};

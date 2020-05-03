@@ -3,9 +3,17 @@ const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 const LECTURE_DETAIL = "/lecture/:id";
-const WRITE_NOTICE = "/:id/write-notice";
+const WRITE_NOTICE = "/write-notice/:id";
 const USER_DETAIL = "/:id";
 const NEW_NOTICES = "/:id/new-notices";
+
+const MAKE_LECTURE = "/:id/make-lecture";
+const SEE_LECTURES = "/see-lectures";
+
+//API
+
+const API = "/api";
+const ENROLL_LECTURE = "/enroll/:id";
 
 const routes = {
   home: HOME,
@@ -17,7 +25,7 @@ const routes = {
     else return LECTURE_DETAIL;
   },
   writeNotice: (id) => {
-    if (id) return `/${id}/write-notice`;
+    if (id) return `/write-notice/${id}`;
     else return WRITE_NOTICE;
   },
   userDetail: (id) => {
@@ -27,6 +35,16 @@ const routes = {
   newNotices: (id) => {
     if (id) return `/${id}/new-notices`;
     else return NEW_NOTICES;
+  },
+  makeLecture: (id) => {
+    if (id) return `/${id}/make-lecture`;
+    else return MAKE_LECTURE;
+  },
+  seeLectures: SEE_LECTURES,
+  api: API,
+  enrollLecture: (id) => {
+    if (id) return `/enroll/${id}`;
+    else return ENROLL_LECTURE;
   },
 };
 

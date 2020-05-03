@@ -16,6 +16,8 @@ const LectureSchema = new mongoose.Schema({
 });
 
 const model =
-  mongoose.models.Lecture || mongoose.model("Lecture", LectureSchema);
+  mongoose.models.Lecture ||
+  mongoose.models.lectures ||
+  mongoose.model("Lecture", LectureSchema);
 
 export default model;
