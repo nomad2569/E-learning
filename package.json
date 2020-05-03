@@ -4,31 +4,44 @@
   "description": "for fun",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js --delay 2"
+    "dev:server": "nodemon --exec babel-node index.js --delay 2",
+    "dev:assets": "set WEBPACK_ENV=development&&webpack -w",
+    "build:assets": "WEBPACK_ENV=production webpack"
   },
   "author": "KMK",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
+    "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
+    "css-loader": "^3.5.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.22.0",
     "mongo": "^0.1.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.11",
     "morgan": "^1.10.0",
+    "node-sass": "^4.14.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
-    "pug": "^2.0.4"
+    "postcss": "^7.0.28",
+    "postcss-loader": "^3.0.0",
+    "pug": "^2.0.4",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "webpack-cli": "^3.3.11"
   }
 }

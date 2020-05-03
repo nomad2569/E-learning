@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&family=Raleway:wght@200;400;600&display=swap");
+@import "./config/var.scss";
+@import "./config/reset.scss";
+@import "./header.scss";
+
+* {
+  font-family: "Raleway", "Noto Sans KR", sans-serif;
+}
+
+main {
+  background-color: $backColor;
+}
