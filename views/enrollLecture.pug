@@ -1,6 +1,7 @@
 extends ./layout/main
 
 block content
-    h1.enroll__title Enroll this lecture?
-    form.enroll__form(action=`/api${routes.enrollLecture(id)}`,method="post")
-        input.enroll__form(type="submit",name="yes",value="Yes")
+    .enrollContainer
+        h2.enroll__title Enroll this lecture?
+        form.enroll__form(action=`/api${routes.enrollLecture(id)}`,method="post")
+            input.enroll__form(type="submit",name="yes",value="Yes")

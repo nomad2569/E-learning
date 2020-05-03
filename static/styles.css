@@ -286,10 +286,10 @@ input {
       .lectures .lectureBlock .lecture__link .lecture__id {
         font-weight: 200;
         font-size: 15px;
-        margin-bottom: 5px; }
+        margin-bottom: 7px; }
       .lectures .lectureBlock .lecture__link .lecture__name {
         font-weight: 600;
-        margin-bottom: 5px; }
+        margin-bottom: 10px; }
       .lectures .lectureBlock .lecture__link .lecture__professor {
         font-size: 13px; }
 
@@ -359,3 +359,69 @@ body {
 main {
   background-color: #f8f8f8;
   height: 100%; }
+  main h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 200px;
+    font-weight: 600;
+    color: #053578;
+    font-family: "Raleway"; }
+  main h2 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 80px;
+    color: #7d0019;
+    font-weight: 400;
+    padding-bottom: 30px;
+    border-bottom: 2px solid black; }
+
+select {
+  margin-bottom: 20px; }
+
+input[type="text"] {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  border: 2px solid #7d0019;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  margin-bottom: 10px; }
+
+input[type="submit"] {
+  border: 2px solid black;
+  width: 100px;
+  height: 40px;
+  font-size: 25px;
+  margin-top: 10px;
+  background: white;
+  cursor: pointer; }
+
+form {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  margin-top: 50px; }
+
+.enrollContainer {
+  border: 1px solid black;
+  width: 90%;
+  margin: 0 auto; }
+  .enrollContainer input[type="submit"] {
+    margin-bottom: 50px; }

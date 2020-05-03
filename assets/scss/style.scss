@@ -16,4 +16,60 @@ body {
 main {
   background-color: $backColor;
   height: 100%;
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 200px;
+    font-weight: 600;
+    color: $yblue;
+    font-family: "Raleway";
+  }
+  h2 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 80px;
+    color: $crimson;
+    font-weight: 400;
+    padding-bottom: 30px;
+    border-bottom: 2px solid black;
+  }
+}
+
+select {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  border: 2px solid $crimson;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+input[type="submit"] {
+  border: 2px solid black;
+  width: 100px;
+  height: 40px;
+  font-size: 25px;
+  margin-top: 10px;
+  background: white;
+  cursor: pointer;
+}
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.enrollContainer {
+  border: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+  input[type="submit"] {
+    margin-bottom: 50px;
+  }
 }
