@@ -1,5 +1,8 @@
 @import "./config/var.scss";
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   font-family: "Raleway";
   background-color: $crimson;
   color: white;

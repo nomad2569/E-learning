@@ -142,6 +142,10 @@ input {
     outline: none; }
 
 .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   font-family: "Raleway";
   background-color: #7d0019;
   color: white;
@@ -357,6 +361,7 @@ body {
   height: 100%; }
 
 main {
+  position: relative;
   background-color: #f8f8f8;
   height: 100%; }
   main h1 {
