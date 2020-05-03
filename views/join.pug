@@ -1,4 +1,12 @@
 extends ./layout/main
 
 block content
-    p join
+    form.join__form(action=routes.join,method="post")
+        label.join__check 학생
+            input.join__input(type="checkbox",name="isStudent")
+        label.join__check 교수
+            input.join__input(type="checkbox",name="isProf")
+        input.join__input(type="text",name="name")
+        input.join__input(type="text",name="id")
+        input.join__input(type="text",name="")
+        input.join__input(type="text")

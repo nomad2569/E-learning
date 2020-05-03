@@ -1,9 +1,10 @@
 header
-    img.header__logo(src="http://info.korea.ac.kr/_res/info/img/community/img_kweb.gif")
-    span.header__title KWEB Board
+    a.header__logo-link(href=routes.home)
+        img.header__logo(src="http://info.korea.ac.kr/_res/info/img/community/img_kweb.gif")
+    a.header__title(href=routes.home) KWEB Board
     .header__column
-        span.header__login log in &nbsp
-        span.header__join join
+        a.header__login(href=routes.login) log in
+        a.header__join(href=routes.join) join
         span.header__newN
         span.header__userProfile
         span.header__logout
