@@ -206,8 +206,94 @@ input {
     .header .header__column a:not(:last-child) {
       margin-bottom: 10px; }
 
+.lectures {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 20px;
+  overflow: scroll;
+  height: 100%;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none; }
+  .lectures::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/ }
+  .lectures .lectureBlock {
+    position: relative;
+    margin: 20px 0px 20px 0px;
+    border: 1px solid #cdcdcd;
+    border-left: 10px solid #666666;
+    min-width: 300px;
+    width: 80%;
+    height: 100px;
+    -webkit-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in; }
+    .lectures .lectureBlock:hover {
+      border: 2px solid #7d0019; }
+    .lectures .lectureBlock .lecture__linkToWrite {
+      position: absolute;
+      font-size: 30px;
+      bottom: 35px;
+      right: 20px; }
+    .lectures .lectureBlock .lecture__link {
+      height: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+         -moz-box-orient: vertical;
+         -moz-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+         -moz-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+         -moz-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding-left: 15px; }
+      .lectures .lectureBlock .lecture__link .lecture__id {
+        font-weight: 200;
+        font-size: 15px;
+        margin-bottom: 5px; }
+      .lectures .lectureBlock .lecture__link .lecture__name {
+        font-weight: 600;
+        margin-bottom: 5px; }
+      .lectures .lectureBlock .lecture__link .lecture__professor {
+        font-size: 13px; }
+
 * {
   font-family: "Raleway", "Noto Sans KR", sans-serif; }
 
+body {
+  background-color: #f8f8f8;
+  height: 100%; }
+
 main {
-  background-color: #f8f8f8; }
+  background-color: #f8f8f8;
+  height: 100%; }

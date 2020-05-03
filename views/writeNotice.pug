@@ -1,4 +1,7 @@
 extends ./layout/main
 
 block content
-    p writeNotice
+     form.write__form(action=routes.writeNotice(id),method="post")
+        input.write__input(type="text",name="title",placeholder="title")
+        textarea.write__input(name="content",placeholder="content")
+        input.write__input(type="submit",value="post")

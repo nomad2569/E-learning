@@ -6,10 +6,11 @@ import {
   lectureDetail,
   getLogin,
   userDetail,
-  writeNotice,
+  getWriteNotice,
   postJoin,
   postLogin,
   logout,
+  postWriteNotice,
 } from "./globalController";
 
 export const globalRouter = express.Router();
@@ -26,6 +27,7 @@ globalRouter.get(routes.logout, logout);
 
 globalRouter.get(routes.lectureDetail(), lectureDetail);
 
-globalRouter.get(routes.userDetail, userDetail);
+globalRouter.get(routes.writeNotice(), getWriteNotice);
+globalRouter.post(routes.writeNotice(), postWriteNotice);
 
-globalRouter.get(routes.writeNotice, writeNotice);
+globalRouter.get(routes.userDetail(), userDetail);

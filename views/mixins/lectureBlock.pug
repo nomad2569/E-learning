@@ -1,6 +1,9 @@
 mixin lectureBlock(lecture = {})
     .lectureBlock
-        a(href=routes.lectureDetail(lecture.id))
+        a.lecture__link(href=routes.lectureDetail(lecture.id))
             span.lecture__id=lecture.lectureId
             span.lecture__name=lecture.name
-            span.lecture__professor=lecture.professorName
+            span.lecture__professor .#{lecture.professorName} |
+        if loggedUser.isProf
+            a.lecture__linkToWrite(href=routes.writeNotice(lecture.id))
+                i.fas.fa-pen-square

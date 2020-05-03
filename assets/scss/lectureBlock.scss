@@ -1,0 +1,60 @@
+@import "./config/var.scss";
+
+.lectures {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  overflow: scroll;
+  height: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+
+  .lectureBlock {
+    position: relative;
+    margin: 20px 0px 20px 0px;
+    border: 1px solid #cdcdcd;
+    border-left: 10px solid #666666;
+    min-width: 300px;
+    width: 80%;
+    height: 100px;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      border: 2px solid $crimson;
+    }
+
+    .lecture__linkToWrite {
+      position: absolute;
+      font-size: 30px;
+      bottom: 35px;
+      right: 20px;
+    }
+
+    .lecture__link {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-left: 15px;
+
+      .lecture__id {
+        font-weight: 200;
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .lecture__name {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      .lecture__professor {
+        font-size: 13px;
+      }
+    }
+  }
+}

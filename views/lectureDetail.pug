@@ -1,4 +1,10 @@
 extends ./layout/main
+include mixins/lectureBlock
 
 block content
-    p lectureDetail
+    +lectureBlock({
+        id:lecture.id,
+        lectureId:lecture.lectureId,
+        name:lecture.name,
+        professorName:lecture.professor.name
+    })

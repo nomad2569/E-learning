@@ -1,6 +1,8 @@
 import passport from "passport";
 import routes from "./routes";
 import User from "./models/User";
+import Lecture from "./models/Lecture";
+import Notice from "./models/Notice";
 
 export const home = async (req, res) => {
   try {
@@ -64,12 +66,41 @@ export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);
 };
-export const lectureDetail = (req, res) => {
-  res.render("lectureDetail", { pageTitle: "lectureDetail" });
+export const lectureDetail = async (req, res) => {
+  const { query: id } = req;
+  try {
+    const lecture = await Lecture.findById(id);
+    //const lecture = await Lecture.findById(id).populate("notices");
+    res.render("lectureDetail", { pageTitle: "lectureDetail", lecture });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 };
 export const userDetail = (req, res) => {
   res.render("userDetail", { pageTitle: "userDetail" });
 };
-export const writeNotice = (req, res) => {
-  res.render("writeNotice", { pageTitle: "writeNotice" });
+export const getWriteNotice = (req, res) => {
+  const { query: id } = req;
+  res.render("writeNotice", { pageTitle: "writeNotice", id });
+};
+export const postWriteNotice = async (req, res) => {
+  const { body: title, content, query: id } = req;
+
+  try {
+    const newNotice = await Notice.create({
+      creator: req.user.id,
+      title,
+      content,
+    });
+
+    const lecture = await Lecture.findById(id);
+    lecture.notices.push(newNotice.id);
+    lecture.save();
+
+    res.redirect(routes.home);
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.writeNotice(id));
+  }
 };
