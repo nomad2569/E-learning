@@ -1,4 +1,5 @@
 import express from "express";
+import babelPolyFill from "@babel/polyfill";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
@@ -38,7 +39,7 @@ app.use(passport.session());
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 app.use(helmet()); // 보안 담당
 app.use(cookieParser()); //서버가 쿠키를 이해하도록 한다
 app.use(bodyParser.json()); // 서버가 json을 이해

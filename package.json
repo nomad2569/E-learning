@@ -4,9 +4,14 @@
   "description": "for fun",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node index.js --delay 2",
-    "dev:assets": "set WEBPACK_ENV=development&&webpack -w",
-    "build:assets": "WEBPACK_ENV=production webpack"
+    "dev:server": "nodemon --exec babel-node src/index.js --delay 2",
+    "dev:assets": "set WEBPACK_ENV=development&&cd src&&webpack -w",
+    "build:assets": "set WEBPACK_ENV=production&&cd src&&webpack",
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
+    "copyAll": "cp -R src/static build&&cp -R src/views build",
+    "build": "npm run build:server&&npm run build:assets&&npm run copyAll",
+    "start": "PRODUCTION=true node build/init.js",
+    "prestart": "npm run build"
   },
   "author": "KMK",
   "license": "ISC",
@@ -18,6 +23,7 @@
     "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
     "body-parser": "^1.19.0",
+    "brew": "0.0.8",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
     "css-loader": "^3.5.3",
@@ -39,10 +45,12 @@
     "postcss": "^7.0.28",
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.4",
+    "rm": "^0.1.8",
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "nodemon": "^2.0.3",
     "webpack-cli": "^3.3.11"
   }
