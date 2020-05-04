@@ -2,9 +2,11 @@ extends ./layout/main
 include mixins/noticeBlock
 
 block content
-    .noticeses Current 3 Days Announcements
-        each notices in filteredNotices
-            .notices Announcements
+    .noticeses 
+        span.noticeses__title Current 3 Days Announcements
+        each notices in filteredNotices.reverse()
+            .notices 
+                span.notices__title Announcements
                 each notice in notices.reverse()
                     +noticeBlock({
                         title:notice.title,

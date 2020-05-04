@@ -10,7 +10,8 @@ block content
             name:lecture.name,
             professorName:lecture.professor.name
         })
-    .notices Announcements
+    .notices 
+        span.notices__title Announcements
         each notice in lecture.notices.reverse()
             +noticeBlock({
                 title:notice.title,

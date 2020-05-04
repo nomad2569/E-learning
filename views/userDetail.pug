@@ -1,4 +1,9 @@
 extends ./layout/main
 
 block content
-    p userDetail
+    form.detail__form(action=routes.userDetail(loggedUser.id),method="post")
+        input.detail__input(type="text",name="name",value=user.name)
+        input.detail__input(type="text",name="schoolId",value=user.schoolId)
+        input.detail__input(type="text",name="email",value=user.email,disabled="true")
+        input.detail__input(type="submit",value="Change")
+        a.detail__ChangePassword(href=routes.changePassword) 🗝 change Password 🛠

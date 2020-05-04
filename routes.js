@@ -2,6 +2,7 @@ const HOME = "/";
 const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
+const CHANGE_PASSWORD = "/change-password";
 const LECTURE_DETAIL = "/lecture/:id";
 const WRITE_NOTICE = "/write-notice/:id";
 const USER_DETAIL = "/:id";
@@ -20,6 +21,7 @@ const routes = {
   join: JOIN,
   login: LOGIN,
   logout: LOGOUT,
+  changePassword: CHANGE_PASSWORD,
   lectureDetail: (id) => {
     if (id) return `/lecture/${id}`;
     else return LECTURE_DETAIL;

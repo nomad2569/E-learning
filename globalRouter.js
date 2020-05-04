@@ -5,7 +5,7 @@ import {
   getJoin,
   lectureDetail,
   getLogin,
-  userDetail,
+  getUserDetail,
   getWriteNotice,
   postJoin,
   postLogin,
@@ -15,7 +15,10 @@ import {
   getSeeLectures,
   postSeeLectures,
   postMakeLecture,
+  postUserDetail,
   newNotices,
+  postChangePassword,
+  getChangePassword,
 } from "./globalController";
 
 export const globalRouter = express.Router();
@@ -29,6 +32,8 @@ globalRouter.get(routes.login, getLogin);
 globalRouter.post(routes.login, postLogin);
 
 globalRouter.get(routes.logout, logout);
+globalRouter.get(routes.changePassword, getChangePassword);
+globalRouter.post(routes.changePassword, postChangePassword);
 
 globalRouter.get(routes.newNotices(), newNotices);
 
@@ -43,4 +48,5 @@ globalRouter.get(routes.lectureDetail(), lectureDetail);
 globalRouter.get(routes.writeNotice(), getWriteNotice);
 globalRouter.post(routes.writeNotice(), postWriteNotice);
 
-globalRouter.get(routes.userDetail(), userDetail);
+globalRouter.get(routes.userDetail(), getUserDetail);
+globalRouter.post(routes.userDetail(), postUserDetail);

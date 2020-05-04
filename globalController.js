@@ -70,6 +70,28 @@ export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);
 };
+
+export const getChangePassword = (req, res) => {
+  res.render("changePassword", { pageTitle: "changePassword" });
+};
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { currentPassword, password, password2 },
+  } = req;
+  try {
+    if (password !== password2) {
+      res.status(400);
+      res.redirect(routes.changePassword);
+      return;
+    }
+
+    await req.user.changePassword(currentPassword, password);
+
+    res.redirect(routes.userDetail(req.user.id));
+  } catch (error) {
+    res.redirect(routes.changePassword);
+  }
+};
 export const lectureDetail = async (req, res) => {
   const {
     params: { id },
@@ -90,8 +112,22 @@ export const lectureDetail = async (req, res) => {
     res.redirect(routes.home);
   }
 };
-export const userDetail = (req, res) => {
-  res.render("userDetail", { pageTitle: "userDetail" });
+export const getUserDetail = async (req, res) => {
+  const user = await User.findById(req.user.id);
+  res.render("userDetail", { pageTitle: "userDetail", user });
+};
+export const postUserDetail = async (req, res) => {
+  try {
+    const {
+      body: { name, schoolId },
+      user: { id },
+    } = req;
+    await User.findOneAndUpdate({ _id: id }, { name, schoolId });
+    res.redirect(routes.home);
+  } catch (error) {
+    res.status(400);
+    res.redirect(routes.userDetail(id));
+  }
 };
 export const getWriteNotice = (req, res) => {
   const {

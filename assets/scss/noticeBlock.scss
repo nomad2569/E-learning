@@ -1,3 +1,18 @@
+@import "./config/var.scss";
+.noticeses {
+  padding-top: 20px;
+  .noticeses__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    font-weight: 600;
+    color: $crimson;
+    font-size: 40px;
+    border-bottom: 5px solid $crimson;
+  }
+}
+
 .notices {
   padding-top: 20px;
   display: flex;
@@ -7,6 +22,12 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 
+  .notices__title {
+    font-size: 50px;
+    font-weight: 200;
+    padding-right: 20px;
+    margin-bottom: 30px;
+  }
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
   }
