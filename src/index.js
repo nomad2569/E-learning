@@ -16,6 +16,10 @@ import "./passport";
 import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 
+var moment = require("moment");
+require("moment-timezone");
+moment.tz.setDefault("Asia/Seoul");
+
 const app = express();
 const PORT = process.env.PORT || 1000;
 
