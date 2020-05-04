@@ -17,7 +17,7 @@ import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 
 const app = express();
-const PORT = 1000;
+const PORT = process.env.PORT || 1000;
 
 const CokieStore = MongoStore(session);
 
