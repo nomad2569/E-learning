@@ -15,6 +15,7 @@ import {
   getSeeLectures,
   postSeeLectures,
   postMakeLecture,
+  newNotices,
 } from "./globalController";
 
 export const globalRouter = express.Router();
@@ -28,6 +29,8 @@ globalRouter.get(routes.login, getLogin);
 globalRouter.post(routes.login, postLogin);
 
 globalRouter.get(routes.logout, logout);
+
+globalRouter.get(routes.newNotices(), newNotices);
 
 globalRouter.get(routes.makeLecture(), getMakeLecture);
 globalRouter.post(routes.makeLecture(), postMakeLecture);

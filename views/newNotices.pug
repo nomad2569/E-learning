@@ -1,0 +1,15 @@
+extends ./layout/main
+include mixins/noticeBlock
+
+block content
+    .noticeses Current 3 Days Announcements
+        each notices in filteredNotices
+            .notices Announcements
+                each notice in notices.reverse()
+                    +noticeBlock({
+                        title:notice.title,
+                        createdAt:notice.createdAt,
+                        content:notice.content,
+                        creator:notice.creator.name
+                    })
+    

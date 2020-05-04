@@ -26,6 +26,8 @@
     "express-session": "^1.17.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.22.0",
+    "moment": "^2.25.1",
+    "moment-timezone": "^0.5.28",
     "mongo": "^0.1.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.11",

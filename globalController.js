@@ -4,6 +4,10 @@ import User from "./models/User";
 import Lecture from "./models/Lecture";
 import Notice from "./models/Notice";
 
+var moment = require("moment");
+require("moment-timezone");
+moment.tz.setDefault("Asia/Seoul");
+
 export const home = async (req, res) => {
   try {
     const user = await User.findById(req.user.id)
@@ -160,3 +164,47 @@ export const getSeeLectures = async (req, res) => {
 };
 
 export const postSeeLectures = (req, res) => {};
+
+export const newNotices = async (req, res) => {
+  const {
+    params: { id }, // 유저 id
+  } = req;
+  moment.tz.setDefault("Asia/Seoul");
+  const now = moment().format("YYYY-MM-DD HH:mm:ss");
+  const user = await User.findById(id).populate({
+    path: "lectures",
+    populate: {
+      path: "notices",
+      populate: {
+        path: "creator",
+        select: "name",
+      },
+      select: "createdAt title content",
+    },
+  });
+
+  let filteredNotices = [[]];
+  user.lectures.forEach((lecture, index) => {
+    filteredNotices[index] = lecture.notices.filter((notice) => {
+      const splitedNotice = JSON.stringify(notice.createdAt)
+        .split("T")[0]
+        .split("-");
+      const uploadedYear = splitedNotice[0];
+      const uploadedMon = splitedNotice[1];
+      const uploadedDay = splitedNotice[2];
+
+      const splitedNow = JSON.stringify(now).split(" ")[0].split("-");
+      const nowMon = splitedNow[1];
+      const nowDay = splitedNow[2];
+      const nowYear = splitedNow[0];
+
+      if (nowMon === uploadedMon && nowYear === uploadedYear) {
+        if (parseInt(nowDay) - parseInt(uploadedDay) <= 3) {
+          return notice;
+        }
+      }
+    });
+  });
+  console.log(filteredNotices);
+  res.render("newNotices", { pageTitle: "newNotices", filteredNotices });
+};
