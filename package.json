@@ -10,7 +10,7 @@
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "copyAll": "cp -R src/static build&&cp -R src/views build",
     "build": "npm run build:server&&npm run build:assets&&npm run copyAll",
-    "start": "PRODUCTION=true node build/init.js",
+    "start": "PRODUCTION=true node build/index.js",
     "prestart": "npm run build"
   },
   "author": "KMK",
