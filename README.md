@@ -57,6 +57,7 @@ _pug_ _express_ _webpack_ _heroku_ _mongoose_
 
 ## To Do
 
+- .env git ignore
 - Route protection
 - flash
 - additional properties
