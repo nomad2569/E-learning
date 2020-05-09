@@ -34,6 +34,10 @@ export const postJoin = async (req, res, next) => {
     res.render("join", { pageTitle: "Join" });
   } else {
     try {
+      if (password.length < 8) {
+        res.redirect(routes.join);
+      }
+
       if (accessor == 1) {
         const newUser = await User({
           isStudent: true,
