@@ -55,6 +55,20 @@ _for kweb_
 
 _pug_ _express_ _webpack_ _heroku_ _mongoose_
 
+## Example ID / Password
+
+- 학생
+  - 1.
+    - email : `alsrb001218@naver.com`
+    - password : `12345678`
+- 교수
+  - 1.
+    - email : `정성우@naver.com`
+    - password : `12345678`
+  - 2.
+    - email : `이희조@naver.com`
+    - password : `12345678`
+
 ## To Do
 
 - .env git ignore
