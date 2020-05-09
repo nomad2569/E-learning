@@ -54,3 +54,12 @@ _for kweb_
 #### Additional explanation
 
 _pug_ _express_ _webpack_ _heroku_ _mongoose_
+
+## To Do
+
+- Route protection
+- flash
+- additional properties
+  - 공지 기능
+  - search 기능
+  - 정렬 기능
