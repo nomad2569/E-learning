@@ -58,6 +58,7 @@ _pug_ _express_ _webpack_ _heroku_ _mongoose_
 ## To Do
 
 - .env git ignore
+- Proper API implementation
 - Route protection
 - flash
 - additional properties
