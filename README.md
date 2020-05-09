@@ -6,6 +6,26 @@ _for kweb_
 
 #### User Schema
 
+| name        | type       | ref       | meaning                        |
+| ----------- | :--------- | :-------- | :----------------------------- |
+| `isStudent` | Boolean    | x         | 학생일 경우 `true`             |
+| `isProf`    | Boolean    | x         | 교수일 경우 `true`             |
+| `name`      | String     | x         |                                |
+| `schoolId`  | Number     | x         |                                |
+| `lectures`  | ObjectId[] | `Lecture` | 수강 혹은 교수하는 `Lecture`들 |
+| `email`     | String     | x         | usernameField                  |
+
+#### Lecture Schema
+
+| name        | type       | ref      | meaning                     |
+| ----------- | :--------- | :------- | :-------------------------- |
+| `lectureId` | String     | x        | 학수번호                    |
+| `name`      | String     | x        |                             |
+| `professor` | ObjectId   | `User`   | 해당 `Lecture`의 교수       |
+| `notices`   | ObjectId[] | `Notice` | 해당 `Lecture`의 `Notice`들 |
+
+#### Notice Schema
+
 | name        | type     | ref    | meaning              |
 | ----------- | :------- | :----- | :------------------- |
 | `createdAt` | Date     | x      | 공지가 만들어진 시각 |
