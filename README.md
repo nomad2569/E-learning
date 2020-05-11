@@ -71,7 +71,7 @@ _pug_ _express_ _webpack_ _heroku_ _mongoose_
 
 ## To Do
 
-- .env git ignore
+- ~~.env git ignore~~
 - Proper REST API implementation
 - Route protection
 - flash
